@@ -20,9 +20,6 @@ last_updated: 2026-11-11
   <a href="docs/USER_MANUAL.md#install-on-android">
     <img src="https://img.shields.io/badge/platform-Android-3DDC84" alt="Platform: Android">
   </a>
-  <a href="docs/USER_MANUAL.md#install-on-iphone">
-    <img src="https://img.shields.io/badge/platform-iOS-555555" alt="Platform: iOS">
-  </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-Proprietary-red" alt="License: Proprietary">
   </a>
