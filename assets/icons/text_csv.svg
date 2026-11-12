@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Text CSV app icon: source of truth for every platform icon.
+  The background is a full square; each platform applies its own mask
+  (Android adaptive shape, iOS rounded rect, Windows rounded corners).
+  Keep the table inside the central 66% so adaptive masks never clip it.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2388B4"/>
+      <stop offset="1" stop-color="#00506E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- Table outline -->
+  <rect x="236" y="276" width="552" height="472" rx="40" fill="none" stroke="#FFFFFF" stroke-width="34"/>
+  <!-- Header row -->
+  <path d="M236 316a40 40 0 0 1 40-40h472a40 40 0 0 1 40 40v78H236z" fill="#FFFFFF"/>
+  <!-- Column dividers -->
+  <path d="M420 394v354M604 394v354" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round"/>
+  <!-- Row dividers -->
+  <path d="M236 512h552M236 630h552" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round"/>
+  <!-- Comma accent in the header: plain text, not a spreadsheet -->
+  <circle cx="302" cy="340" r="22" fill="#00506E"/>
+  <path d="M302 356c0 28-14 46-34 56" fill="none" stroke="#00506E" stroke-width="18" stroke-linecap="round"/>
+</svg>
