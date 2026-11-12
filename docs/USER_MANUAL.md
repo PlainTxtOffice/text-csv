@@ -14,12 +14,12 @@ generated_from: "dev-docs/specs/USER_MANUAL_SPEC.instructions.md"
 
 Text CSV edits CSV and TSV documents as plain text in a local document library.
 It is for anyone who needs to view or change delimited text files without a
-full spreadsheet program. Windows has a desktop interface; iPhone has a touch
-interface. Both support import, cell editing, row and column operations,
-saving, export, and recovery of unsaved edits.
+full spreadsheet program. Windows has a desktop interface; iPhone and Android
+have touch interfaces. All three support import, cell editing, row and column
+operations, saving, and export. Windows and iPhone also recover unsaved edits.
 
-The Windows and iPhone libraries are independent. Export and import CSV files to
-move documents between them.
+Each platform's library is independent. Export and import CSV files to move
+documents between them.
 <!-- Verified from: platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/DocumentListView.swift; platform/ios/text_csv/CSVEditorView.swift -->
 
 ## Installation and Setup
@@ -48,11 +48,13 @@ source is Unknown. No App Store link has been verified. No account or initial
 configuration is required.
 <!-- Verified from: platform/ios/text_csv.xcodeproj/project.pbxproj [IPHONEOS_DEPLOYMENT_TARGET, TARGETED_DEVICE_FAMILY] -->
 
-#### Android preview
+#### Install on Android
 
-Android 0.3.0 is an initial implementation for Android 8.0 or newer. There is
-no Play Store release yet. Build and install it using Android Studio; see
-the [Android build instructions](../platform/android/README.md).
+Text CSV requires Android 8.0 or newer. Install it from
+[Google Play](https://play.google.com/store/apps/details?id=com.plaintxtoffice.textcsv).
+No account or initial configuration is required.
+
+#### Use Text CSV on Android
 
 On Android, choose **New document** to create a three-by-three table or
 **Import** to select a UTF-8 CSV/TSV file. Tap a document to open it, then tap
@@ -413,8 +415,10 @@ one and importing it on the other.
 **Does exporting save my changes?** No. Choose **Save** separately.
 <!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVEditorViewModel.swift -->
 
-**Can I undo a change?** No. Text CSV has no undo history. On Windows, **File >
-Reload saved copy** discards all edits since the last save.
+**Can I undo a change?** On Android, yes: **Undo** and **Redo** cover changes
+made since the document was opened. Windows and iPhone have no undo history.
+On Windows, **File > Reload saved copy** discards all edits since the last
+save.
 <!-- Verified from: platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/events/editor.py [reload]; platform/ios/text_csv/CSVEditorView.swift -->
 
 ## Glossary
