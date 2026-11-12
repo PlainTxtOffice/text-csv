@@ -41,6 +41,10 @@ document library, so the original file never changes, and exports write a clean
 UTF-8 CSV wherever you choose. Each platform keeps its own library on the
 device.
 
+Text CSV is also useful for recording data when you are away from a computer or
+laptop. Log readings, counts, or observations on your phone as they happen,
+then export a CSV to use elsewhere.
+
 ## Features
 
 - Import CSV, TSV, and plain text files, with commas or tabs detected

@@ -18,6 +18,10 @@ full spreadsheet program. Windows has a desktop interface; iPhone and Android
 have touch interfaces. All three support import, cell editing, row and column
 operations, saving, and export. Windows and iPhone also recover unsaved edits.
 
+Text CSV is also useful for recording data when you are away from a computer or
+laptop. Log readings, counts, or observations on your phone as they happen,
+then export a CSV to use elsewhere.
+
 Each platform's library is independent. Export and import CSV files to move
 documents between them.
 <!-- Verified from: platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/DocumentListView.swift; platform/ios/text_csv/CSVEditorView.swift -->
