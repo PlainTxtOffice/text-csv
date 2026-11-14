@@ -47,9 +47,11 @@ uninstalling removes that record, while the subscription stays with your Google
 account until you cancel it in Google Play.
 
 If you choose Feedback, the app builds a message from your note, the app
-version, Android version and device model and hands it to an app you choose;
-nothing is sent unless you send it, and we use feedback to reply, fix bugs and
-consider feature requests. Document contents are never included.
+version, Android version and device model and opens your email app with a draft
+addressed to <support@plaintxtoffice.com>; if no email app is installed, it
+hands the message to an app you choose. You can also open our contact page
+instead. Nothing is sent unless you send it, and we use feedback to reply, fix
+bugs and consider feature requests. Document contents are never included.
 
 Cloud backup of app data is turned off; on some phones, a device-to-device
 transfer during setup may still copy it. Uninstalling the app removes its
@@ -62,7 +64,7 @@ and performance information.
 We intend to use Apple-provided crash and performance information, when
 available under your Apple diagnostic-sharing choices, only to troubleshoot
 problems and improve reliability. App diagnostic logging should not
-intentionally include document text, task contents, feed bodies, private
+intentionally include document text, cell contents, document names, private
 filenames, URLs, tokens or other private content. Apple controls its
 system-generated reports; we cannot guarantee those reports contain no sensitive
 information.

@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-11-11
+last_updated: 2026-11-13
 version: 5.3.0
 product_versions:
   windows: "1.0.0"
@@ -83,14 +83,19 @@ documents directly from other apps.
 
 Input reads are limited to 5 MB. Saved library documents are limited to 1 MB
 of serialized CSV text, 200,000 cells, and 500 columns. Imports make library
-copies and never change source files. The app sends nothing over the network
-and disables automatic Android backup. Removing the app removes its library.
+copies and never change source files. Your documents are not sent anywhere. The
+app includes Google's billing library for Text CSV Premium, which has internet
+access and may send diagnostic information about purchases to Google. Automatic
+Android backup is disabled. Removing the app removes its library.
 
 **Feedback** in the top bar opens a form for a bug report or feature request.
-**Send with…** passes your note, the app version, and the device model to an
-app you choose, such as email; **Open contact page** opens the Plain Text
-Office contact page. Your documents are never included. **Privacy** in the top
-bar explains what the app stores and links to the full privacy policy.
+**Email feedback** opens your email app with a draft to
+<support@plaintxtoffice.com> containing your note, the app version, the Android
+version, and the device model; if no email app is installed, you choose another
+app to receive the message. Nothing is sent until you send it.
+**Open contact page** opens the Plain Text Office contact page. Your documents
+are never included. **Privacy** in the top bar explains what the app stores and
+links to the full privacy policy.
 <!-- Verified from: platform/android/app/build.gradle.kts; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/feedback/FeedbackScreen.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/privacy/PrivacyScreen.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/; platform/android/app/src/main/AndroidManifest.xml -->
 
 #### Text CSV Premium on Android
@@ -148,7 +153,9 @@ says so. Choose **Restore purchases** after signing in to Google Play or
 completing a pending payment.
 <!-- Verified from: platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/domain/Premium.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/billing/PlayBilling.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/MainScreenViewModel.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/premium/PremiumScreen.kt; platform/android/app/src/main/res/values/strings.xml -->
 
-The remaining platform-specific instructions describe Windows and iPhone.
+The step-by-step instructions in the sections that follow describe Windows and
+iPhone. The Android steps are above; the reference sections note where Android
+differs.
 
 ## Starting the Program
 
@@ -301,9 +308,10 @@ On iPhone, if the library cannot open, a **Library Unavailable** screen offers
 
 ## Settings and Preferences
 
-Text CSV has no user-editable settings. On Windows, sidebar and column widths
-can be adjusted while the app is open; they reset when it restarts.
-<!-- Verified from: platform/windows/text_csv/ui/gui/views/window.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/ContentView.swift -->
+Text CSV has no user-editable settings on any platform. On Windows, sidebar and
+column widths can be adjusted while the app is open; they reset when it
+restarts.
+<!-- Verified from: platform/windows/text_csv/ui/gui/views/window.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/ContentView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/ -->
 
 ## Importing and Exporting
 
@@ -328,16 +336,20 @@ Example,"Text with a comma, preserved"
 
 ### Export a CSV copy
 
-1. Choose **Export CSV** on Windows or **Export** on iPhone.
+1. Choose **Export CSV** on Windows or **Export** on iPhone and Android.
 1. Select a destination and filename. Confirm replacement if asked about an
    existing file.
 1. Wait for the export result. Canceling leaves the document unchanged.
 
-Exports use UTF-8, commas between fields, and CRLF line endings. An export
-includes current edits but does not save them in the app library; choose
-**Save** separately. On Windows, the status shows **CSV exported. Library save
-state is unchanged.**
-<!-- Verified from: platform/windows/text_csv/domains/document/codec.py [serialize]; platform/windows/text_csv/adapters/files.py; platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVExportSnapshot.swift; platform/ios/text_csv/CSVEditorView.swift -->
+Exports use UTF-8, commas between fields, and CRLF line endings. On Android,
+Text CSV Premium can instead export tab-separated text or a Markdown table,
+with CRLF or LF line endings; see
+[Text CSV Premium on Android](#text-csv-premium-on-android). An export includes
+current edits but does not save them in the app library; choose **Save**
+separately. On Windows, the status shows **CSV exported. Library save state is
+unchanged.** On Android, it shows **File exported.**, or **File exported.
+Library edits are still unsaved.** when edits are not yet saved.
+<!-- Verified from: platform/windows/text_csv/domains/document/codec.py [serialize]; platform/windows/text_csv/adapters/files.py; platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVExportSnapshot.swift; platform/ios/text_csv/CSVEditorView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/domain/DelimitedText.kt [ExportFormat, serialize]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentFiles.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/MainScreenViewModel.kt [export]; platform/android/app/src/main/res/values/strings.xml [status_exported, status_exported_unsaved] -->
 
 ## Commands and Shortcuts
 
@@ -386,13 +398,14 @@ a row.
 | --- | --- |
 | Windows source installation | `platform/windows/data/library.sqlite3` and `platform/windows/data/recovery/*.json` |
 | iPhone | Private app library and recovery storage on the device |
-| Both | Imported originals and exported CSV files stay where you chose |
+| Android | Private app library on the device; there are no recovery drafts |
+| All | Imported originals and exported files stay where you chose |
 
 Do not edit library or recovery files by hand. Export a CSV to get an editable
 copy. The Windows app does not send documents over the network. Removing the
-Windows virtual environment keeps the library. Deleting the iPhone app removes
-its library.
-<!-- Verified from: platform/windows/text_csv/config/path_handler.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/CSVRecoveryStore.swift; platform/ios/text_csv/CSVLibraryStorage.swift; platform/ios/text_csv/PrivacyPolicyView.swift -->
+Windows virtual environment keeps the library. Deleting the iPhone or Android
+app removes its library.
+<!-- Verified from: platform/windows/text_csv/config/path_handler.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/CSVRecoveryStore.swift; platform/ios/text_csv/CSVLibraryStorage.swift; platform/ios/text_csv/PrivacyPolicyView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt; platform/android/app/src/main/res/values/strings.xml [privacy_removal_body] -->
 
 ## Troubleshooting
 
@@ -412,9 +425,9 @@ its library.
 Export writes a new file where you choose.
 <!-- Verified from: platform/windows/text_csv/application/documents.py; platform/ios/text_csv/DocumentListView.swift -->
 
-**Do Windows and iPhone synchronize?** No. Move documents by exporting a CSV on
-one and importing it on the other.
-<!-- Verified from: platform/windows/text_csv/adapters/library.py; platform/ios/text_csv/CSVLibraryStorage.swift -->
+**Do Windows, iPhone, and Android synchronize?** No. Move documents by
+exporting a CSV on one and importing it on another.
+<!-- Verified from: platform/windows/text_csv/adapters/library.py; platform/ios/text_csv/CSVLibraryStorage.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt -->
 
 **Does exporting save my changes?** No. Choose **Save** separately.
 <!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVEditorViewModel.swift -->

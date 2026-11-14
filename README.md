@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-11-11
+last_updated: 2026-11-13
 ---
 
 <!-- Authoring guidance: dev-docs/specs/README_SPEC.instructions.md -->
@@ -54,9 +54,13 @@ then export a CSV to use elsewhere.
 - Save documents in a local library and export UTF-8 CSV copies.
 - Recover unsaved edits after an interruption on Windows and iPhone, even when
   the library cannot open.
-- Undo and redo, find and replace, sort, filter, and remove duplicate rows on
-  Android. The free app keeps up to three documents; some tools need the
-  optional Text CSV Premium subscription.
+- Undo and redo changes on Android.
+- **Paid subscription · Android · Available on Google Play:** the free app
+  keeps up to three documents and exports comma-separated CSV. The optional
+  Text CSV Premium subscription adds unlimited documents; find and replace;
+  sorting, filtering, and removing duplicate rows; moving rows and columns;
+  splitting and merging columns; and export as TSV or a Markdown table with a
+  choice of line endings.
 - Copy and paste cell ranges, clear cells, edit multiline cells, rename
   documents, and use keyboard shortcuts on Windows.
 - Open CSV and TSV files in Text CSV from other apps on iPhone.
