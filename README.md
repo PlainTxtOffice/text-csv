@@ -11,15 +11,15 @@ last_updated: 2026-11-22
 <h1 align="center">Text CSV</h1>
 
 <p align="center">
-  A plain-text CSV and TSV editor for Android and iPhone, for anyone who needs
-  to view or change delimited files without a full spreadsheet program.
+  A plain-text CSV and TSV editor for anyone who needs to view or change
+  delimited files without a full spreadsheet program.
 </p>
 
 <p align="center">
-  <a href="docs/USER_MANUAL.md#install-on-android">
+  <a href="https://play.google.com/store/apps/details?id=com.plaintxtoffice.textcsv">
     <img src="https://img.shields.io/badge/platform-Android-3DDC84" alt="Platform: Android">
   </a>
-  <a href="docs/USER_MANUAL.md#install-on-iphone">
+  <a href="https://apps.apple.com/app/id6837241235">
     <img src="https://img.shields.io/badge/platform-iOS-555555" alt="Platform: iOS">
   </a>
   <a href="LICENSE">

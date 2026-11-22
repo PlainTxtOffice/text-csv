@@ -1,6 +1,6 @@
 ---
 last_updated: 2026-11-22
-version: 5.4.0
+version: 6.0.0
 product_versions:
   windows: "1.0.0"
   ios: "1.0.0"
@@ -14,10 +14,12 @@ generated_from: "dev-docs/specs/USER_MANUAL_SPEC.instructions.md"
 
 Text CSV edits CSV and TSV documents as plain text in a local document library.
 It is for anyone who needs to view or change delimited text files without a
-full spreadsheet program. Windows has a desktop interface; iPhone and Android
-have touch interfaces. All three support import, cell editing, row and column
+full spreadsheet program. Text CSV is available for iPhone and Android, which
+have touch interfaces. A Windows desktop version is in development and has no
+download yet. All three support import, cell editing, row and column
 operations, saving, and export. Windows and iPhone also recover unsaved edits.
 Android and iPhone offer an optional Text CSV Premium subscription.
+<!-- Verified from: app registry dev-docs/APPS.md [Published Apps, Store Status]; GitHub releases (none) -->
 
 Text CSV is also useful for recording data when you are away from a computer or
 laptop. Log readings, counts, or observations on your phone as they happen,
@@ -31,20 +33,10 @@ documents between them.
 
 ### Install the app
 
-#### Install on Windows
-
-You need Windows and Python 3.12 or newer. Python 3.14 was used to validate this
-source installation. No compiled installer is supplied yet. Run these commands
-from the `platform/windows/` folder:
-
-```powershell
-python -m venv .venv
-.venv/Scripts/python.exe -m pip install -e .
-```
-
-The installation includes the Qt desktop components. No account or initial
-configuration is required.
-<!-- Verified from: platform/windows/pyproject.toml [project.dependencies, requires-python]; platform/windows/README.md -->
+The Windows version is in development. It has no download or installer yet,
+so it cannot be installed. The Windows sections of this manual describe how it
+works.
+<!-- Verified from: app registry dev-docs/APPS.md [Published Apps: Windows Code]; GitHub releases (none) -->
 
 #### Install on iPhone
 
@@ -191,25 +183,18 @@ differs.
 
 ### Launch and close the app
 
-#### Start on Windows
+#### Start on Windows (in development)
 
-After setup, double-click `Launch Text CSV.cmd` in `platform/windows/`, or run
-one of these commands from that folder:
-
-```powershell
-.venv/Scripts/python.exe -m text_csv.main --gui
-.venv/Scripts/text-csv.exe --gui "C:/Documents/example.csv"
-```
-
-The window opens with the status **Opening library…**, then shows **Create a
-document or import a CSV/TSV file.** A file named on the command line is
-imported as a library copy. Without arguments, an interactive terminal offers
+The Windows version has no download yet. When it starts, the window opens with
+the status **Opening library…**, then shows
+**Create a document or import a CSV/TSV file.** A file named on the command line
+is imported as a library copy. Without arguments, an interactive terminal offers
 **1. Desktop GUI (--gui)** or **q. Quit**. A launch without a terminal, such as
 from a shortcut, must include `--gui` or a file.
 
 To quit, close the window or choose **File > Exit**. Pending edits are saved
 first; if the save fails, the window stays open.
-<!-- Verified from: platform/windows/text_csv/ui/cli/app.py; platform/windows/text_csv/ui/gui/app.py [run]; platform/windows/text_csv/ui/gui/views/window.py; platform/windows/Launch Text CSV.cmd; platform/windows/text_csv/ui/gui/events/editor.py [close] -->
+<!-- Verified from: platform/windows/text_csv/ui/cli/app.py; platform/windows/text_csv/ui/gui/app.py [run]; platform/windows/text_csv/ui/gui/views/window.py; platform/windows/text_csv/ui/gui/events/editor.py [close] -->
 
 #### Start on iPhone
 
@@ -228,7 +213,7 @@ the editor. The app also saves when it moves to the background.
 
 ### Navigate the interface
 
-#### Navigate on Windows
+#### Navigate on Windows (in development)
 
 - The left sidebar lists each document with its size and last-opened time. Type
   in **Filter documents** to narrow the list. Double-click a document, or select
@@ -288,9 +273,9 @@ there are no formulas or automatic number conversions.
 
 ### Change rows and columns
 
-- **Windows:** use **Add row** or **Add column** to append. To insert above,
-  below, before, or after the selected cell, or to delete its row or column,
-  right-click the cell or use the **Grid** menu.
+- **Windows (in development):** use **Add row** or **Add column** to append. To
+  insert above, below, before, or after the selected cell, or to delete its row
+  or column, right-click the cell or use the **Grid** menu.
 - **iPhone:** tap **Add Row** or **Add Column** to append. Tap a row number for
   **Insert Row Above**, **Insert Row Below**, and **Delete Row**. Tap a column
   letter for **Insert Column Before**, **Insert Column After**, and **Delete
@@ -357,7 +342,7 @@ the Document** explains why. The document is unchanged.
 
 ### Use desktop editing tools
 
-These commands are available on Windows only.
+These commands are available only on Windows, which is in development.
 
 1. Select a rectangle of cells and press **Ctrl+C** to copy it as tab-separated
    text.
@@ -376,31 +361,14 @@ since the last save after you confirm.
 
 ### Remove a document
 
-- **Windows:** select the document in the sidebar, choose **File > Delete
-  document**, and confirm.
+- **Windows (in development):** select the document in the sidebar, choose
+  **File > Delete document**, and confirm.
 - **iPhone:** swipe left on the document in the list and tap **Delete**. iPhone
   deletes immediately without asking for confirmation.
 
 The library copy and its recovery draft are removed. Original imported files and
 exported copies are not affected.
 <!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [remove]; platform/windows/text_csv/application/documents.py [remove]; platform/ios/text_csv/Library/DocumentListView.swift [deleteDocuments] -->
-
-### Send feedback
-
-Send bug reports and feature requests to <support@plaintxtoffice.com> or
-through the [contact page](https://plaintxtoffice.com/contact/). Each app also
-has a feedback screen that prepares the email for you:
-
-- **iPhone:** tap the envelope button next to **Privacy** in the document list.
-- **Android:** choose **Feedback** in the top bar.
-- **Windows:** choose **Help > Send Feedback...**.
-
-The screen offers a bug report, a feature request, or the contact page. Your
-documents are never included, and nothing is sent until you send it. The
-details each draft holds are described in
-[Navigate on iPhone](#navigate-on-iphone) and
-[Use Text CSV on Android](#use-text-csv-on-android).
-<!-- Verified from: platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Support/Feedback.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/feedback/FeedbackScreen.kt; platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/feedback.py [add_feedback_action] -->
 
 ### Recover unsaved edits
 
@@ -474,7 +442,7 @@ Library edits are still unsaved.** when edits are not yet saved.
 
 ## Commands and Shortcuts
 
-### Windows keyboard shortcuts
+### Windows keyboard shortcuts (in development)
 
 | Shortcut | Menu command | What it does |
 | --- | --- | --- |
@@ -492,10 +460,9 @@ Library edits are still unsaved.** when edits are not yet saved.
 The remaining **File** and **Grid** commands have no shortcuts.
 <!-- Verified from: platform/windows/text_csv/ui/gui/app.py [build_window] -->
 
-### Windows terminal options
+### Windows terminal options (in development)
 
-Run these from `platform/windows/` as `.venv/Scripts/text-csv.exe` or
-`.venv/Scripts/python.exe -m text_csv.main`.
+The Windows app accepts these command-line options.
 
 | Command or option | Accepted values | What it does |
 | --- | --- | --- |
@@ -517,30 +484,28 @@ With a hardware keyboard, **Cmd+Z** undoes and **Shift+Cmd+Z** redoes.
 
 | Platform | Files and locations |
 | --- | --- |
-| Windows source installation | `platform/windows/data/library.sqlite3` and `platform/windows/data/recovery/*.json` |
+| Windows (in development) | `library.sqlite3` and `recovery/*.json` in the `data` folder under `%LOCALAPPDATA%/text-csv/`; a portable build keeps them under a `text-csv-data` folder beside the program. **Help > Privacy** shows the location. |
 | iPhone | Private app library and recovery storage on the device, plus a record of whether Text CSV Premium is active |
 | Android | Private app library on the device; there are no recovery drafts |
 | All | Imported originals and exported files stay where you chose |
 
 Do not edit library or recovery files by hand. Export a CSV to get an editable
-copy. The Windows app does not send documents over the network. Removing the
-Windows virtual environment keeps the library. Deleting the iPhone or Android
-app removes its library.
-<!-- Verified from: platform/windows/text_csv/config/path_handler.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/Storage/CSVRecoveryStore.swift; platform/ios/text_csv/Storage/CSVLibraryStorage.swift; platform/ios/text_csv/Support/PrivacyPolicyView.swift; platform/ios/text_csv/Premium/PremiumStore.swift [cacheKey]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt; platform/android/app/src/main/res/values/strings.xml [privacy_removal_body] -->
+copy. The Windows app does not send documents over the network. Deleting the
+iPhone or Android app removes its library.
+<!-- Verified from: platform/windows/text_csv/config/path_handler.py [resolve_storage, DATA_DIR]; platform/windows/text_csv/main.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/Storage/CSVRecoveryStore.swift; platform/ios/text_csv/Storage/CSVLibraryStorage.swift; platform/ios/text_csv/Support/PrivacyPolicyView.swift; platform/ios/text_csv/Premium/PremiumStore.swift [cacheKey]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt; platform/android/app/src/main/res/values/strings.xml [privacy_removal_body] -->
 
 ## Troubleshooting
 
 | Symptom | Likely Cause | Resolution |
 | --- | --- | --- |
-| Library cannot open | Storage is unavailable, full, or not permitted | Free space or fix permissions, then choose **Retry opening library**. Export readable recovery drafts if needed. |
+| Library cannot open | Storage is unavailable, full, or not permitted | Make space or fix permissions, then choose **Retry opening library**. Export readable recovery drafts if needed. |
 | **Could not complete operation** (Windows) or **Could Not Save** (iPhone) | The save or file operation failed | Keep the document open, fix storage access, and retry Save, or export your edits. |
 | Status says the saved copy changed | The library copy changed after you opened it | Export your edits, then reload the saved copy. |
 | **Could not read file** or import fails | The file is not readable UTF-8 text | Save the file as UTF-8 CSV or TSV and import again. |
 | **Recovery unavailable** in the status | Recovery drafts cannot be written | Keep the document open until Save or Export succeeds. On iPhone, tap **Retry Recovery**. |
-| Windows launcher says to install the environment first | The virtual environment is missing | Complete the Windows installation in `platform/windows/`. |
 | Premium screen shows **Subscription Unavailable** (iPhone) | The App Store cannot be reached, or the subscription is not offered in your country or region | Check your connection and App Store sign-in, then open the Premium screen again. |
 | **Could Not Change the Document** (iPhone) | A Premium tool could not run, for example because of an invalid regular expression or a split that is too large | Correct the input and try again. The document is unchanged. |
-<!-- Verified from: platform/windows/text_csv/ui/gui/events/editor.py; platform/windows/text_csv/application/documents.py; platform/windows/Launch Text CSV.cmd; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Library/DocumentListView.swift [handleIncomingFile]; platform/ios/text_csv/Library/CSVLibraryUnavailableView.swift; platform/ios/text_csv/Premium/PremiumView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift [toolError] -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/events/editor.py; platform/windows/text_csv/application/documents.py; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Library/DocumentListView.swift [handleIncomingFile]; platform/ios/text_csv/Library/CSVLibraryUnavailableView.swift; platform/ios/text_csv/Premium/PremiumView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift [toolError] -->
 
 ## FAQ
 
@@ -560,6 +525,26 @@ without a subscription and cover changes made since the document was opened.
 Windows has no undo history. On Windows, **File > Reload saved copy** discards
 all edits since the last save.
 <!-- Verified from: platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/events/editor.py [reload]; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift [undo, redo] -->
+
+## Feedback
+
+Send bug reports and feature requests by email to
+<support@plaintxtoffice.com> or through the contact page at
+<https://plaintxtoffice.com/contact/>. Each platform also has a feedback
+screen that prepares the email for you:
+
+| Platform | How to open feedback |
+| --- | --- |
+| iPhone | Tap the envelope button, **Send Feedback**, next to **Privacy** in the document list. |
+| Android | Choose **Feedback** in the top bar. |
+| Windows (in development) | Choose **Help > Send Feedback...**. |
+
+The screen offers a bug report, a feature request, or the contact page. Your
+documents are never included, and nothing is sent until you send it. The
+details each draft holds are described in
+[Navigate on iPhone](#navigate-on-iphone) and
+[Use Text CSV on Android](#use-text-csv-on-android).
+<!-- Verified from: platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Support/Feedback.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/feedback/FeedbackScreen.kt; platform/android/app/src/main/res/values/strings.xml [feedback]; platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/feedback.py [add_feedback_action] -->
 
 ## Glossary
 
