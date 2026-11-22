@@ -71,9 +71,9 @@ delete, move, split, merge, and sort commands. **Export** writes a separate
 copy through the system file picker. Deletion requires confirmation. Tools
 marked with a small lock need Text CSV Premium.
 
-**Undo** and **Redo** are free. They cover cell edits, row and column changes,
-sorts, and replacements made since the document was opened. Up to twenty
-recent states are kept in memory.
+**Undo** and **Redo** work without a subscription. They cover cell edits, row
+and column changes, sorts, and replacements made since the document was
+opened. Up to twenty recent states are kept in memory.
 
 If a library save fails, edits remain in memory: choose **Retry Save** or
 **Export** before leaving the app. Returning to **Documents** retries
@@ -105,19 +105,19 @@ Text CSV Premium is a subscription billed through Google Play, with a monthly
 plan and, where Google Play offers it, a yearly plan. The **Premium** screen
 shows each plan's price in your local currency and how much the yearly plan
 saves; pick a plan, then choose **Subscribe**. The subscription renews each
-month or year until you cancel it in Google Play subscriptions; **Manage
-subscription** on the Premium screen opens that page. **What's new in
-Premium** on the same screen lists what each release added, and a dot on the
-Premium icon marks notes you have not opened yet.
-Without a subscription, the app shows **Using N of 3 free documents** on the
-document list and a prompt when you choose a Premium feature. Nothing changes
+month or year until you cancel it in Google Play subscriptions;
+**Manage subscription** on the Premium screen opens that page.
+**What's new in Premium** on the same screen lists what each release added, and
+a dot on the Premium icon marks notes you have not opened yet. Without a
+subscription, the document list shows how many of the three library documents
+are in use, and choosing a Premium feature shows a prompt. Nothing changes
 until you subscribe.
 
 Premium unlocks:
 
-- **Unlimited documents.** Free accounts keep up to three library documents.
-  When a subscription ends, existing documents stay and remain editable; you
-  cannot add a fourth until you subscribe again.
+- **Unlimited documents.** Without Premium, the library keeps up to three
+  documents. When a subscription ends, existing documents stay and remain
+  editable; you cannot add a fourth until you subscribe again.
 - **Find & replace.** Type text to count matching cells, choose **Match
   case**, **Edit next match** to open each match, or **Replace all**. Searches
   are plain text unless you check **Regular expression**; then the replacement
@@ -143,7 +143,8 @@ Premium unlocks:
 - **Export…** options. Choose a comma (CSV) or tab (TSV) separator or a
   **Markdown table**, and Windows (CRLF) or Unix (LF) line endings, before
   picking a destination. A Markdown table uses the first row as its header and
-  writes line breaks inside cells as `<br>`. The default CSV export stays free.
+  writes line breaks inside cells as `<br>`. The default CSV export does not
+  need Premium.
 
 **Have an access code?** on the Premium screen unlocks Premium on this device
 for someone who was given a code, such as an app reviewer. It is not needed to
@@ -166,16 +167,16 @@ bought with the same Apple Account. When Premium is active, the screen shows
 **Premium is active** and **Manage Subscription**, which opens your App Store
 subscription settings.
 
-Without a subscription, the document list shows **Using N of 3 free
-documents** and **Get Premium**. Free accounts keep up to three library
-documents. At the limit, **New**, **Import**, and opening a file from another
-app show the Premium screen instead. When a subscription ends, existing
-documents stay and remain editable, and an active filter is cleared.
+Without a subscription, the library keeps up to three documents. The document
+list shows how many are in use, with a **Get Premium** button that opens the
+Premium screen. At the limit, **New**, **Import**, and opening a file from
+another app show the Premium screen instead. When a subscription ends,
+existing documents stay and remain editable, and an active filter is cleared.
 
 Premium adds unlimited documents, find and replace, sorting, filtering,
 duplicate removal, moving rows and columns, splitting and merging columns, and
 export options. Locked tools show a lock and open the Premium screen. **Undo**,
-**Redo**, and the standard CSV export stay free. See
+**Redo**, and the standard CSV export do not need Premium. See
 [Use Premium tools on iPhone](#use-premium-tools-on-iphone).
 
 If the App Store cannot be reached, the Premium screen shows **Subscription
@@ -248,7 +249,7 @@ the editor. The app also saves when it moves to the background.
 - The document list shows each document with its size and last-opened time.
   **Privacy** at the top left opens the privacy information, and **Premium**,
   the star button, opens Text CSV Premium. Without a subscription, a row at the
-  top of the list shows how many free documents are used.
+  top of the list shows how many of the three library documents are in use.
 - Tap a document to open it. Scroll the grid horizontally or vertically.
 - Tap a column letter or row number for insert and delete commands, and for
   the Premium move, split, merge, and sort commands.
@@ -302,9 +303,9 @@ effect immediately.
 
 ### Undo and redo changes
 
-On iPhone and Android, **Undo** and **Redo** are free. On iPhone they are at
-the bottom left of the editor, and with a hardware keyboard **Cmd+Z** undoes
-and **Shift+Cmd+Z** redoes. Windows has no undo history.
+On iPhone and Android, **Undo** and **Redo** work without a subscription. On
+iPhone they are at the bottom left of the editor, and with a hardware keyboard
+**Cmd+Z** undoes and **Shift+Cmd+Z** redoes. Windows has no undo history.
 
 - Up to 20 recent steps are kept while the document is open, including after
   saving.
@@ -554,10 +555,10 @@ exporting a CSV on one and importing it on another.
 **Does exporting save my changes?** No. Choose **Save** separately.
 <!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/Editor/CSVEditorViewModel.swift -->
 
-**Can I undo a change?** On Android and iPhone, yes: **Undo** and **Redo** are
-free and cover changes made since the document was opened. Windows has no undo
-history. On Windows, **File > Reload saved copy** discards all edits since the
-last save.
+**Can I undo a change?** On Android and iPhone, yes: **Undo** and **Redo** work
+without a subscription and cover changes made since the document was opened.
+Windows has no undo history. On Windows, **File > Reload saved copy** discards
+all edits since the last save.
 <!-- Verified from: platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/events/editor.py [reload]; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift [undo, redo] -->
 
 ## Glossary

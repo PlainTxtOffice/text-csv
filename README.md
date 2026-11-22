@@ -5,7 +5,7 @@ last_updated: 2026-11-22
 <!-- Authoring guidance: dev-docs/specs/README_SPEC.instructions.md -->
 <!-- rumdl-disable MD033 MD041 -->
 <p align="center">
-  <img src="assets/icons/text_csv.svg" alt="Text CSV app icon" width="128">
+  <img src="assets/icons/icon-github-readme.svg" alt="Text CSV app icon" width="128">
 </p>
 
 <h1 align="center">Text CSV</h1>
@@ -59,15 +59,15 @@ then export a CSV to use elsewhere.
 - Recover unsaved edits after an interruption on Windows and iPhone, even when
   the library cannot open.
 - Undo and redo changes on Android and iPhone.
-- **Paid subscription · Android · Available on Google Play:** the free app
-  keeps up to three documents and exports comma-separated CSV. The optional
-  Text CSV Premium subscription adds unlimited documents; find and replace;
-  sorting, filtering, and removing duplicate rows; moving rows and columns;
-  splitting and merging columns; and export as TSV or a Markdown table with a
-  choice of line endings.
-- **Paid subscription · iPhone · Available on the App Store:** the same free
-  limits and Text CSV Premium features, with the subscription billed through
-  the App Store.
+- **Paid subscription · Android · Available on Google Play:** without a
+  subscription, the app keeps up to three documents and exports
+  comma-separated CSV. The optional Text CSV Premium subscription adds
+  unlimited documents; find and replace; sorting, filtering, and removing
+  duplicate rows; moving rows and columns; splitting and merging columns; and
+  export as TSV or a Markdown table with a choice of line endings.
+- **Paid subscription · iPhone · Available on the App Store:** the same
+  three-document limit and Text CSV Premium features, with the subscription
+  billed through the App Store.
 - Copy and paste cell ranges, clear cells, edit multiline cells, rename
   documents, and use keyboard shortcuts on Windows.
 - Open CSV and TSV files in Text CSV from other apps on iPhone.
