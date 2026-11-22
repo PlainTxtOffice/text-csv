@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-11-13
+last_updated: 2026-11-22
 ---
 
 <!-- Authoring guidance: dev-docs/specs/README_SPEC.instructions.md -->
@@ -11,14 +11,16 @@ last_updated: 2026-11-13
 <h1 align="center">Text CSV</h1>
 
 <p align="center">
-  A plain-text CSV and TSV editor for Android, Windows, and iPhone, for anyone
-  who needs to view or change delimited files without a full spreadsheet
-  program.
+  A plain-text CSV and TSV editor for Android and iPhone, for anyone who needs
+  to view or change delimited files without a full spreadsheet program.
 </p>
 
 <p align="center">
   <a href="docs/USER_MANUAL.md#install-on-android">
     <img src="https://img.shields.io/badge/platform-Android-3DDC84" alt="Platform: Android">
+  </a>
+  <a href="docs/USER_MANUAL.md#install-on-iphone">
+    <img src="https://img.shields.io/badge/platform-iOS-555555" alt="Platform: iOS">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-Proprietary-red" alt="License: Proprietary">
@@ -31,8 +33,10 @@ last_updated: 2026-11-13
 ## About
 
 **Development status:** The Android app is available on
-[Google Play](https://play.google.com/store/apps/details?id=com.plaintxtoffice.textcsv).
-The Windows and iPhone versions have no public download yet.
+[Google Play](https://play.google.com/store/apps/details?id=com.plaintxtoffice.textcsv),
+and the iPhone app, version 1.0.0, is available on the
+[App Store](https://apps.apple.com/app/id6837241235). The Windows version has no
+public download yet.
 
 Spreadsheet programs often change CSV data on the way in, for example by
 dropping leading zeroes or turning values into dates and formulas. Text CSV
@@ -54,13 +58,16 @@ then export a CSV to use elsewhere.
 - Save documents in a local library and export UTF-8 CSV copies.
 - Recover unsaved edits after an interruption on Windows and iPhone, even when
   the library cannot open.
-- Undo and redo changes on Android.
+- Undo and redo changes on Android and iPhone.
 - **Paid subscription · Android · Available on Google Play:** the free app
   keeps up to three documents and exports comma-separated CSV. The optional
   Text CSV Premium subscription adds unlimited documents; find and replace;
   sorting, filtering, and removing duplicate rows; moving rows and columns;
   splitting and merging columns; and export as TSV or a Markdown table with a
   choice of line endings.
+- **Paid subscription · iPhone · Available on the App Store:** the same free
+  limits and Text CSV Premium features, with the subscription billed through
+  the App Store.
 - Copy and paste cell ranges, clear cells, edit multiline cells, rename
   documents, and use keyboard shortcuts on Windows.
 - Open CSV and TSV files in Text CSV from other apps on iPhone.
@@ -95,6 +102,9 @@ troubleshooting.
 
 ## Feedback
 
-Bug reports and feature requests are welcome. In the Android app, choose
-**Feedback** in the top bar. You can also use the
-[contact form](https://plaintxtoffice.com/contact/) on plaintxtoffice.com.
+Send bug reports and feature requests to
+[support@plaintxtoffice.com](mailto:support@plaintxtoffice.com) or through the
+[contact page](https://plaintxtoffice.com/contact/). You can also send them from
+the app. On iPhone, tap the envelope button (**Send Feedback**) next to
+**Privacy** in the document list; the email draft holds only the app version,
+iOS version, and device model. On Android, choose **Feedback** in the top bar.

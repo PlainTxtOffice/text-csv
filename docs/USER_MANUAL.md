@@ -1,6 +1,6 @@
 ---
-last_updated: 2026-11-13
-version: 5.3.0
+last_updated: 2026-11-22
+version: 5.4.0
 product_versions:
   windows: "1.0.0"
   ios: "1.0.0"
@@ -17,6 +17,7 @@ It is for anyone who needs to view or change delimited text files without a
 full spreadsheet program. Windows has a desktop interface; iPhone and Android
 have touch interfaces. All three support import, cell editing, row and column
 operations, saving, and export. Windows and iPhone also recover unsaved edits.
+Android and iPhone offer an optional Text CSV Premium subscription.
 
 Text CSV is also useful for recording data when you are away from a computer or
 laptop. Log readings, counts, or observations on your phone as they happen,
@@ -24,7 +25,7 @@ then export a CSV to use elsewhere.
 
 Each platform's library is independent. Export and import CSV files to move
 documents between them.
-<!-- Verified from: platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/DocumentListView.swift; platform/ios/text_csv/CSVEditorView.swift -->
+<!-- Verified from: platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
 
 ## Installation and Setup
 
@@ -47,8 +48,8 @@ configuration is required.
 
 #### Install on iPhone
 
-Text CSV requires an iPhone with iOS 26.2 or later. An end-user installation
-source is Unknown. No App Store link has been verified. No account or initial
+Text CSV requires an iPhone with iOS 26.2 or later. Install version 1.0.0 from
+the [App Store](https://apps.apple.com/app/id6837241235). No account or initial
 configuration is required.
 <!-- Verified from: platform/ios/text_csv.xcodeproj/project.pbxproj [IPHONEOS_DEPLOYMENT_TARGET, TARGETED_DEVICE_FAMILY] -->
 
@@ -153,6 +154,34 @@ says so. Choose **Restore purchases** after signing in to Google Play or
 completing a pending payment.
 <!-- Verified from: platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/domain/Premium.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/billing/PlayBilling.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/MainScreenViewModel.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/premium/PremiumScreen.kt; platform/android/app/src/main/res/values/strings.xml -->
 
+#### Text CSV Premium on iPhone
+
+Text CSV Premium is an App Store subscription with a monthly plan and a yearly
+plan. Tap **Premium**, the star button at the top of the document list, or any
+locked tool to open **Text CSV Premium**. The screen shows each plan's price in
+your local currency. Pick a plan and tap **Subscribe**, then confirm with the
+App Store. The subscription renews until you cancel it in your App Store
+subscriptions. **Restore Subscription** checks the App Store for a subscription
+bought with the same Apple Account. When Premium is active, the screen shows
+**Premium is active** and **Manage Subscription**, which opens your App Store
+subscription settings.
+
+Without a subscription, the document list shows **Using N of 3 free
+documents** and **Get Premium**. Free accounts keep up to three library
+documents. At the limit, **New**, **Import**, and opening a file from another
+app show the Premium screen instead. When a subscription ends, existing
+documents stay and remain editable, and an active filter is cleared.
+
+Premium adds unlimited documents, find and replace, sorting, filtering,
+duplicate removal, moving rows and columns, splitting and merging columns, and
+export options. Locked tools show a lock and open the Premium screen. **Undo**,
+**Redo**, and the standard CSV export stay free. See
+[Use Premium tools on iPhone](#use-premium-tools-on-iphone).
+
+If the App Store cannot be reached, the Premium screen shows **Subscription
+Unavailable**. Premium that is already active keeps working offline.
+<!-- Verified from: platform/ios/text_csv/Premium/Premium.swift; platform/ios/text_csv/Premium/PremiumStore.swift; platform/ios/text_csv/Premium/PremiumView.swift; platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
+
 The step-by-step instructions in the sections that follow describe Windows and
 iPhone. The Android steps are above; the reference sections note where Android
 differs.
@@ -192,7 +221,7 @@ Text CSV imports a copy and opens it in the editor.
 
 Returning to **Documents** saves pending changes; if the save fails, you stay in
 the editor. The app also saves when it moves to the background.
-<!-- Verified from: platform/ios/text_csv/text_csvApp.swift; platform/ios/text_csv/Info.plist [CFBundleDocumentTypes]; platform/ios/text_csv/DocumentListView.swift; platform/ios/text_csv/CSVEditorView.swift -->
+<!-- Verified from: platform/ios/text_csv/App/text_csvApp.swift; platform/ios/text_csv/Info.plist [CFBundleDocumentTypes]; platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
 
 ## Getting Around
 
@@ -217,14 +246,27 @@ the editor. The app also saves when it moves to the background.
 #### Navigate on iPhone
 
 - The document list shows each document with its size and last-opened time.
-  **Privacy** at the top left opens the privacy information.
+  **Privacy** at the top left opens the privacy information, and **Premium**,
+  the star button, opens Text CSV Premium. Without a subscription, a row at the
+  top of the list shows how many free documents are used.
 - Tap a document to open it. Scroll the grid horizontally or vertically.
-- Tap a column letter or row number for insert and delete commands.
-- Save status appears above the grid. **Add Row**, the grid size, and **Add
-  Column** appear below it.
+- Tap a column letter or row number for insert and delete commands, and for
+  the Premium move, split, merge, and sort commands.
+- **Tools** at the top of the editor holds the Premium tools. Save status
+  appears above the grid, with the filter summary when a filter is on.
+  **Undo**, **Redo**, the grid size, **Add Row**, and **Add Column** appear
+  below the grid.
 - While typing, the keyboard toolbar shows **Tab**, which moves to the next
   cell, and **Done**, which stops editing.
-<!-- Verified from: platform/ios/text_csv/DocumentListView.swift; platform/ios/text_csv/PrivacyPolicyView.swift; platform/ios/text_csv/CSVGridView.swift; platform/ios/text_csv/CSVEditorView.swift -->
+- The envelope button next to **Privacy** opens **Send Feedback**. Tap
+  **Report a bug** or **Request a feature** to open your email app with a draft
+  to <support@plaintxtoffice.com> that holds only the app version, the iOS
+  version, and the device model. Write your message and send it. Tap
+  **Open contact form** to use the contact page in your browser instead, and
+  **Done** to close the screen. Your CSV files are never included, and nothing
+  is sent until you send it.
+<!-- Verified from: platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Support/PrivacyPolicyView.swift; platform/ios/text_csv/Editor/CSVGridView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
+<!-- Verified from: platform/ios/text_csv/Support/Feedback.swift [Feedback, FeedbackView] -->
 
 ## Everyday Tasks
 
@@ -241,7 +283,7 @@ the editor. The app also saves when it moves to the background.
 
 Cells contain text. Leading zeroes and numeric-looking values stay as typed;
 there are no formulas or automatic number conversions.
-<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [create]; platform/windows/text_csv/adapters/library.py [create]; platform/windows/text_csv/domains/document/codec.py [normalize]; platform/ios/text_csv/DocumentListView.swift [createDocument]; platform/ios/text_csv/CSVEditorViewModel.swift; platform/ios/text_csv/CSVEditorView.swift -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [create]; platform/windows/text_csv/adapters/library.py [create]; platform/windows/text_csv/domains/document/codec.py [normalize]; platform/ios/text_csv/Library/DocumentListView.swift [createDocument]; platform/ios/text_csv/Editor/CSVEditorViewModel.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
 
 ### Change rows and columns
 
@@ -251,11 +293,66 @@ there are no formulas or automatic number conversions.
 - **iPhone:** tap **Add Row** or **Add Column** to append. Tap a row number for
   **Insert Row Above**, **Insert Row Below**, and **Delete Row**. Tap a column
   letter for **Insert Column Before**, **Insert Column After**, and **Delete
-  Column**.
+  Column**. With Text CSV Premium, the same menus also move, split, and merge;
+  see [Use Premium tools on iPhone](#use-premium-tools-on-iphone).
 
 At least one row and one column always remain. Deleting a row or column takes
 effect immediately.
-<!-- Verified from: platform/windows/text_csv/ui/gui/app.py [build_window]; platform/windows/text_csv/ui/gui/events/grid.py; platform/windows/text_csv/domains/document/models.py; platform/ios/text_csv/CSVGridView.swift; platform/ios/text_csv/CSVEditorView.swift -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/app.py [build_window]; platform/windows/text_csv/ui/gui/events/grid.py; platform/windows/text_csv/domains/document/models.py; platform/ios/text_csv/Editor/CSVGridView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
+
+### Undo and redo changes
+
+On iPhone and Android, **Undo** and **Redo** are free. On iPhone they are at
+the bottom left of the editor, and with a hardware keyboard **Cmd+Z** undoes
+and **Shift+Cmd+Z** redoes. Windows has no undo history.
+
+- Up to 20 recent steps are kept while the document is open, including after
+  saving.
+- On iPhone, typing in one cell is one step; moving to another cell starts the
+  next. Each row or column change and each Premium tool is one step.
+- A new change after undoing clears **Redo**.
+- On iPhone, **Reload Saved Copy** clears the history.
+<!-- Verified from: platform/ios/text_csv/Editor/CSVEditorViewModel.swift [undo, redo, registerUndo, reloadSavedCopy]; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Editor/CSVGridView.swift -->
+
+### Use Premium tools on iPhone
+
+These tools need Text CSV Premium on iPhone. Open them from **Tools** at the
+top of the editor, or from the row and column menus.
+
+- **Find & Replace…:** type in **Find** to count matching cells. Turn on
+  **Match case** or **Regular expression** as needed; with a regular
+  expression, `$1` in **Replace with** inserts the first group. **Edit Next
+  Match** closes the sheet and selects the next matching cell, and choosing it
+  again continues from there. **Replace All** changes every match, including
+  in the first row.
+- **Sort Rows…:** choose a column under **Sort by** and **A to Z** or **Z to
+  A**. Add up to two **Then by** levels to order rows that match on the
+  earlier columns. Leave **First row is a header** on to keep the first row in
+  place, then tap **Sort**. Sorting compares text, so **10** comes before
+  **9**. **Sort Rows…** in a column letter's menu starts with that column.
+- **Filter Rows…:** choose **Any column** or one column under **Look in**, type
+  in **Rows containing**, and tap **Apply**. The editor shows **Showing X of Y
+  rows** with **Clear Filter**. Filtering only hides rows; saving and export
+  include every row. Typing in a cell does not hide its row. The filter is
+  checked again after row or column changes, tools, undo, and redo, and a
+  filter on one column ends when columns are added, removed, moved, split, or
+  merged.
+- **Remove Duplicates…:** shows how many rows exactly repeat an earlier row.
+  Tap **Remove** to delete them. The first copy of each stays, and capital
+  letters count as different.
+- **Row and column tools:** tap a row number for **Move Up** and **Move
+  Down**, or a column letter for **Move Left**, **Move Right**, **Split
+  Column…**, and **Merge with Next Column…**. Splitting cuts each cell at the
+  separator you type, a comma by default, and puts the extra parts in new
+  columns to the right; spaces count. Merging joins the column with the next
+  one using your separator, a space by default, and leaves it out when either
+  cell is empty.
+- **Export Options…:** see [Export a CSV copy](#export-a-csv-copy).
+
+If a tool cannot run, for example because a regular expression is not valid or
+a split would make more than 500 columns or 200,000 cells, **Could Not Change
+the Document** explains why. The document is unchanged.
+<!-- Verified from: platform/ios/text_csv/Editor/CSVEditorView.swift [toolsMenu]; platform/ios/text_csv/Editor/EditorToolSheets.swift; platform/ios/text_csv/Editor/CSVGridView.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift; platform/ios/text_csv/Model/CSVTools.swift -->
 
 ### Use desktop editing tools
 
@@ -285,7 +382,24 @@ since the last save after you confirm.
 
 The library copy and its recovery draft are removed. Original imported files and
 exported copies are not affected.
-<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [remove]; platform/windows/text_csv/application/documents.py [remove]; platform/ios/text_csv/DocumentListView.swift [deleteDocuments] -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [remove]; platform/windows/text_csv/application/documents.py [remove]; platform/ios/text_csv/Library/DocumentListView.swift [deleteDocuments] -->
+
+### Send feedback
+
+Send bug reports and feature requests to <support@plaintxtoffice.com> or
+through the [contact page](https://plaintxtoffice.com/contact/). Each app also
+has a feedback screen that prepares the email for you:
+
+- **iPhone:** tap the envelope button next to **Privacy** in the document list.
+- **Android:** choose **Feedback** in the top bar.
+- **Windows:** choose **Help > Send Feedback...**.
+
+The screen offers a bug report, a feature request, or the contact page. Your
+documents are never included, and nothing is sent until you send it. The
+details each draft holds are described in
+[Navigate on iPhone](#navigate-on-iphone) and
+[Use Text CSV on Android](#use-text-csv-on-android).
+<!-- Verified from: platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Support/Feedback.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/feedback/FeedbackScreen.kt; platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/feedback.py [add_feedback_action] -->
 
 ### Recover unsaved edits
 
@@ -304,14 +418,14 @@ and **File > Retry opening library** tries to open it again.
 
 On iPhone, if the library cannot open, a **Library Unavailable** screen offers
 **Retry Opening Library** and an export button for each readable recovery draft.
-<!-- Verified from: platform/windows/text_csv/application/documents.py [open_document]; platform/windows/text_csv/ui/gui/events/editor.py [checkpoint, reload]; platform/windows/text_csv/ui/gui/events/recovery.py; platform/ios/text_csv/CSVEditorViewModel.swift; platform/ios/text_csv/CSVEditorView.swift; platform/ios/text_csv/CSVLibraryUnavailableView.swift -->
+<!-- Verified from: platform/windows/text_csv/application/documents.py [open_document]; platform/windows/text_csv/ui/gui/events/editor.py [checkpoint, reload]; platform/windows/text_csv/ui/gui/events/recovery.py; platform/ios/text_csv/Editor/CSVEditorViewModel.swift; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Library/CSVLibraryUnavailableView.swift -->
 
 ## Settings and Preferences
 
 Text CSV has no user-editable settings on any platform. On Windows, sidebar and
 column widths can be adjusted while the app is open; they reset when it
 restarts.
-<!-- Verified from: platform/windows/text_csv/ui/gui/views/window.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/ContentView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/ -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/views/window.py; platform/windows/text_csv/ui/gui/app.py; platform/ios/text_csv/App/ContentView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/ -->
 
 ## Importing and Exporting
 
@@ -332,7 +446,7 @@ UTF-8 byte order mark is accepted. No column names are required. For example:
 Name,Notes
 Example,"Text with a comma, preserved"
 ```
-<!-- Verified from: platform/windows/text_csv/domains/document/codec.py; platform/windows/text_csv/adapters/files.py [read_text]; platform/windows/text_csv/application/documents.py [import_file]; platform/ios/text_csv/CSVParser.swift; platform/ios/text_csv/CSVEditorViewModel.swift; platform/ios/text_csv/DocumentListView.swift -->
+<!-- Verified from: platform/windows/text_csv/domains/document/codec.py; platform/windows/text_csv/adapters/files.py [read_text]; platform/windows/text_csv/application/documents.py [import_file]; platform/ios/text_csv/Model/CSVParser.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift; platform/ios/text_csv/Library/DocumentListView.swift -->
 
 ### Export a CSV copy
 
@@ -344,12 +458,18 @@ Example,"Text with a comma, preserved"
 Exports use UTF-8, commas between fields, and CRLF line endings. On Android,
 Text CSV Premium can instead export tab-separated text or a Markdown table,
 with CRLF or LF line endings; see
-[Text CSV Premium on Android](#text-csv-premium-on-android). An export includes
+[Text CSV Premium on Android](#text-csv-premium-on-android). On iPhone, with
+Text CSV Premium, **Export** first opens **Export Options**: choose
+**Comma-separated (CSV)**, **Tab-separated (TSV)**, or **Markdown table**, and
+**Windows (CRLF)** or **Unix (LF)**, then tap **Export**. These files end every
+line, including the last, and use the `.csv`, `.tsv`, or `.md` extension. A
+Markdown table uses the first row as its header, escapes `|`, and writes line
+breaks inside cells as `<br>`. An export includes
 current edits but does not save them in the app library; choose **Save**
 separately. On Windows, the status shows **CSV exported. Library save state is
 unchanged.** On Android, it shows **File exported.**, or **File exported.
 Library edits are still unsaved.** when edits are not yet saved.
-<!-- Verified from: platform/windows/text_csv/domains/document/codec.py [serialize]; platform/windows/text_csv/adapters/files.py; platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVExportSnapshot.swift; platform/ios/text_csv/CSVEditorView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/domain/DelimitedText.kt [ExportFormat, serialize]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentFiles.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/MainScreenViewModel.kt [export]; platform/android/app/src/main/res/values/strings.xml [status_exported, status_exported_unsaved] -->
+<!-- Verified from: platform/windows/text_csv/domains/document/codec.py [serialize]; platform/windows/text_csv/adapters/files.py; platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/Model/CSVExportSnapshot.swift; platform/ios/text_csv/Model/CSVExportFormat.swift; platform/ios/text_csv/Editor/EditorToolSheets.swift [ExportOptionsSheet]; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/domain/DelimitedText.kt [ExportFormat, serialize]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentFiles.kt; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/ui/main/MainScreenViewModel.kt [export]; platform/android/app/src/main/res/values/strings.xml [status_exported, status_exported_unsaved] -->
 
 ## Commands and Shortcuts
 
@@ -387,17 +507,17 @@ There is no separate command-line editing mode.
 
 ### iPhone controls
 
-iPhone uses touch controls only. While editing, the keyboard toolbar **Tab**
-button moves to the next cell and stops editing at the last cell without adding
-a row.
-<!-- Verified from: platform/ios/text_csv/CSVGridView.swift; platform/ios/text_csv/CSVEditorViewModel.swift [nextCell] -->
+iPhone uses touch controls. While editing, the keyboard toolbar **Tab** button
+moves to the next cell and stops editing at the last cell without adding a row.
+With a hardware keyboard, **Cmd+Z** undoes and **Shift+Cmd+Z** redoes.
+<!-- Verified from: platform/ios/text_csv/Editor/CSVGridView.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift [nextCell]; platform/ios/text_csv/Editor/CSVEditorView.swift [keyboardShortcut] -->
 
 ## Your Data Files
 
 | Platform | Files and locations |
 | --- | --- |
 | Windows source installation | `platform/windows/data/library.sqlite3` and `platform/windows/data/recovery/*.json` |
-| iPhone | Private app library and recovery storage on the device |
+| iPhone | Private app library and recovery storage on the device, plus a record of whether Text CSV Premium is active |
 | Android | Private app library on the device; there are no recovery drafts |
 | All | Imported originals and exported files stay where you chose |
 
@@ -405,7 +525,7 @@ Do not edit library or recovery files by hand. Export a CSV to get an editable
 copy. The Windows app does not send documents over the network. Removing the
 Windows virtual environment keeps the library. Deleting the iPhone or Android
 app removes its library.
-<!-- Verified from: platform/windows/text_csv/config/path_handler.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/CSVRecoveryStore.swift; platform/ios/text_csv/CSVLibraryStorage.swift; platform/ios/text_csv/PrivacyPolicyView.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt; platform/android/app/src/main/res/values/strings.xml [privacy_removal_body] -->
+<!-- Verified from: platform/windows/text_csv/config/path_handler.py; platform/windows/text_csv/application/documents.py; platform/windows/text_csv/ui/gui/app.py [Privacy]; platform/ios/text_csv/Storage/CSVRecoveryStore.swift; platform/ios/text_csv/Storage/CSVLibraryStorage.swift; platform/ios/text_csv/Support/PrivacyPolicyView.swift; platform/ios/text_csv/Premium/PremiumStore.swift [cacheKey]; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt; platform/android/app/src/main/res/values/strings.xml [privacy_removal_body] -->
 
 ## Troubleshooting
 
@@ -417,26 +537,28 @@ app removes its library.
 | **Could not read file** or import fails | The file is not readable UTF-8 text | Save the file as UTF-8 CSV or TSV and import again. |
 | **Recovery unavailable** in the status | Recovery drafts cannot be written | Keep the document open until Save or Export succeeds. On iPhone, tap **Retry Recovery**. |
 | Windows launcher says to install the environment first | The virtual environment is missing | Complete the Windows installation in `platform/windows/`. |
-<!-- Verified from: platform/windows/text_csv/ui/gui/events/editor.py; platform/windows/text_csv/application/documents.py; platform/windows/Launch Text CSV.cmd; platform/ios/text_csv/CSVEditorView.swift; platform/ios/text_csv/DocumentListView.swift [handleIncomingFile]; platform/ios/text_csv/CSVLibraryUnavailableView.swift -->
+| Premium screen shows **Subscription Unavailable** (iPhone) | The App Store cannot be reached, or the subscription is not offered in your country or region | Check your connection and App Store sign-in, then open the Premium screen again. |
+| **Could Not Change the Document** (iPhone) | A Premium tool could not run, for example because of an invalid regular expression or a split that is too large | Correct the input and try again. The document is unchanged. |
+<!-- Verified from: platform/windows/text_csv/ui/gui/events/editor.py; platform/windows/text_csv/application/documents.py; platform/windows/Launch Text CSV.cmd; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Library/DocumentListView.swift [handleIncomingFile]; platform/ios/text_csv/Library/CSVLibraryUnavailableView.swift; platform/ios/text_csv/Premium/PremiumView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift [toolError] -->
 
 ## FAQ
 
 **Does Save change the file I imported?** No. Save updates the library copy.
 Export writes a new file where you choose.
-<!-- Verified from: platform/windows/text_csv/application/documents.py; platform/ios/text_csv/DocumentListView.swift -->
+<!-- Verified from: platform/windows/text_csv/application/documents.py; platform/ios/text_csv/Library/DocumentListView.swift -->
 
 **Do Windows, iPhone, and Android synchronize?** No. Move documents by
 exporting a CSV on one and importing it on another.
-<!-- Verified from: platform/windows/text_csv/adapters/library.py; platform/ios/text_csv/CSVLibraryStorage.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt -->
+<!-- Verified from: platform/windows/text_csv/adapters/library.py; platform/ios/text_csv/Storage/CSVLibraryStorage.swift; platform/android/app/src/main/kotlin/com/plaintxtoffice/textcsv/data/DocumentLibrary.kt -->
 
 **Does exporting save my changes?** No. Choose **Save** separately.
-<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/CSVEditorViewModel.swift -->
+<!-- Verified from: platform/windows/text_csv/ui/gui/events/library.py [export]; platform/ios/text_csv/Editor/CSVEditorViewModel.swift -->
 
-**Can I undo a change?** On Android, yes: **Undo** and **Redo** cover changes
-made since the document was opened. Windows and iPhone have no undo history.
-On Windows, **File > Reload saved copy** discards all edits since the last
-save.
-<!-- Verified from: platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/events/editor.py [reload]; platform/ios/text_csv/CSVEditorView.swift -->
+**Can I undo a change?** On Android and iPhone, yes: **Undo** and **Redo** are
+free and cover changes made since the document was opened. Windows has no undo
+history. On Windows, **File > Reload saved copy** discards all edits since the
+last save.
+<!-- Verified from: platform/windows/text_csv/ui/gui/app.py; platform/windows/text_csv/ui/gui/events/editor.py [reload]; platform/ios/text_csv/Editor/CSVEditorView.swift; platform/ios/text_csv/Editor/CSVEditorViewModel.swift [undo, redo] -->
 
 ## Glossary
 
@@ -445,3 +567,5 @@ save.
   saved document.
 - **CSV / TSV:** plain text tables with values separated by commas or tabs.
 - **Saved-copy conflict:** the library copy changed after the editor opened it.
+- **Text CSV Premium:** an optional subscription on Android and iPhone that
+  adds unlimited documents and extra editing and export tools.

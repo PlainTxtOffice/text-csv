@@ -1,9 +1,10 @@
 # Text CSV privacy policy — publication draft
 
-<!-- Covers the iOS app and the Android subscription and feedback flows. Add
-Windows behavior after the Windows port is verified. -->
+<!-- Covers the iOS app and its subscription and feedback flows, and the Android
+subscription and feedback flows. Add Windows behavior after the Windows port is
+verified. -->
 
-Updated November 8, 2026.
+Updated November 20, 2026.
 
 ## On your device
 
@@ -13,15 +14,35 @@ stored locally. Editing changes the app copy.
 
 ## Files and exports
 
-Import reads files you choose through Files. Export writes a CSV copy to the
-destination you select. A cloud file provider may synchronize or retain files
-under its own policies. The app does not operate its own spreadsheet server.
+Import reads files you choose through Files. Export writes a CSV copy, or with
+Text CSV Premium a TSV or Markdown copy, to the destination you select. A cloud
+file provider may synchronize or retain files under its own policies. The app
+does not operate its own spreadsheet server.
 
 ## Removing data
 
 Delete a document in the app list to remove the app copy. This does not delete
 the original imported file or an exported copy. Deleting the app removes its
 local library. External files, provider copies and device backups may remain.
+
+## Feedback
+
+On iOS, **Send Feedback** next to **Privacy** in the document list opens your
+email app with a draft addressed to <support@plaintxtoffice.com>, or opens our
+contact page in your browser. The draft holds only the app version, iOS version
+and device model. Document contents are never included, nothing is sent unless
+you send it, and we use feedback to reply, fix bugs and consider feature
+requests.
+
+## Purchases on iOS
+
+Apple handles the optional Text CSV Premium subscription through the App Store
+under Apple's terms. We do not receive your name, Apple Account or payment
+details; Apple gives us sales information such as the product, price, date and
+country or region. The app keeps a record on this device of whether Premium is
+active, so it works offline. Deleting the app removes that record; the
+subscription stays with your Apple Account until you cancel it in your App
+Store subscriptions.
 
 ## Developer services
 
