@@ -28,11 +28,11 @@ local library. External files, provider copies and device backups may remain.
 ## Feedback
 
 On iOS, **Send Feedback** next to **Privacy** in the document list opens your
-email app with a draft addressed to <support@plaintxtoffice.com>, or opens our
-contact page in your browser. The draft holds only the app version, iOS version
-and device model. Document contents are never included, nothing is sent unless
-you send it, and we use feedback to reply, fix bugs and consider feature
-requests.
+email app with a draft addressed to <feedback@plaintxtoffice.com>
+(<support@plaintxtoffice.com> in version 1.0.0), or opens our contact page in
+your browser. The draft holds only the app version, iOS version and device
+model. Document contents are never included, nothing is sent unless you send it,
+and we use feedback to reply, fix bugs and consider feature requests.
 
 ## Purchases on iOS
 
@@ -69,7 +69,7 @@ account until you cancel it in Google Play.
 
 If you choose Feedback, the app builds a message from your note, the app
 version, Android version and device model and opens your email app with a draft
-addressed to <support@plaintxtoffice.com>; if no email app is installed, it
+addressed to <feedback@plaintxtoffice.com>; if no email app is installed, it
 hands the message to an app you choose. You can also open our contact page
 instead. Nothing is sent unless you send it, and we use feedback to reply, fix
 bugs and consider feature requests. Document contents are never included.

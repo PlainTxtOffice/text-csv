@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-11-22
+last_updated: 2026-11-24
 ---
 
 <!-- Authoring guidance: dev-docs/specs/README_SPEC.instructions.md -->
@@ -103,8 +103,9 @@ troubleshooting.
 ## Feedback
 
 Send bug reports and feature requests to
-[support@plaintxtoffice.com](mailto:support@plaintxtoffice.com) or through the
+[feedback@plaintxtoffice.com](mailto:feedback@plaintxtoffice.com) or through the
 [contact page](https://plaintxtoffice.com/contact/). You can also send them from
 the app. On iPhone, tap the envelope button (**Send Feedback**) next to
 **Privacy** in the document list; the email draft holds only the app version,
-iOS version, and device model. On Android, choose **Feedback** in the top bar.
+iOS version, and device model, and iOS 1.0.0 addresses it to
+`support@plaintxtoffice.com`. On Android, choose **Feedback** in the top bar.

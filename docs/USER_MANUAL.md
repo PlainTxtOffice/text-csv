@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-11-22
+last_updated: 2026-11-24
 version: 6.0.0
 product_versions:
   windows: "1.0.0"
@@ -83,7 +83,7 @@ Android backup is disabled. Removing the app removes its library.
 
 **Feedback** in the top bar opens a form for a bug report or feature request.
 **Email feedback** opens your email app with a draft to
-<support@plaintxtoffice.com> containing your note, the app version, the Android
+<feedback@plaintxtoffice.com> containing your note, the app version, the Android
 version, and the device model; if no email app is installed, you choose another
 app to receive the message. Nothing is sent until you send it.
 **Open contact page** opens the Plain Text Office contact page. Your documents
@@ -246,11 +246,11 @@ the editor. The app also saves when it moves to the background.
   cell, and **Done**, which stops editing.
 - The envelope button next to **Privacy** opens **Send Feedback**. Tap
   **Report a bug** or **Request a feature** to open your email app with a draft
-  to <support@plaintxtoffice.com> that holds only the app version, the iOS
-  version, and the device model. Write your message and send it. Tap
-  **Open contact form** to use the contact page in your browser instead, and
-  **Done** to close the screen. Your CSV files are never included, and nothing
-  is sent until you send it.
+  to <feedback@plaintxtoffice.com> (<support@plaintxtoffice.com> in version
+  1.0.0) that holds only the app version, the iOS version, and the device model.
+  Write your message and send it. Tap **Open contact form** to use the contact
+  page in your browser instead, and **Done** to close the screen. Your CSV files
+  are never included, and nothing is sent until you send it.
 <!-- Verified from: platform/ios/text_csv/Library/DocumentListView.swift; platform/ios/text_csv/Support/PrivacyPolicyView.swift; platform/ios/text_csv/Editor/CSVGridView.swift; platform/ios/text_csv/Editor/CSVEditorView.swift -->
 <!-- Verified from: platform/ios/text_csv/Support/Feedback.swift [Feedback, FeedbackView] -->
 
@@ -529,7 +529,7 @@ all edits since the last save.
 ## Feedback
 
 Send bug reports and feature requests by email to
-<support@plaintxtoffice.com> or through the contact page at
+<feedback@plaintxtoffice.com> or through the contact page at
 <https://plaintxtoffice.com/contact/>. Each platform also has a feedback
 screen that prepares the email for you:
 
